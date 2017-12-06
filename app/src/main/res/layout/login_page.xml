@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:gravity="center"
+    tools:context=".SignInActivity">
+
+    <LinearLayout
+        android:id="@+id/profile_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/user_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FirstName LastName"
+            android:textSize="20dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/user_email_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="firstname.lastname@gmail.com"
+            android:textSize="18dp"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/signout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Out"/>
+
+        <Button
+            android:id="@+id/continue_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:onClick="continueMain"/>
+
+    </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/login_section"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:gravity="center">
+
+       <TextView
+           android:id="@+id/cozplai_textview"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="COZPLAi"
+           android:textSize="48dp"
+           android:layout_centerHorizontal="true"
+           android:layout_centerVertical="true"
+           android:textStyle="bold" />
+
+       <ImageView
+           android:id="@+id/logo_imageview"
+           android:layout_width="280px"
+           android:layout_height="280px"
+           android:src="@drawable/cozplai_logo"
+           android:layout_centerHorizontal="true"
+           android:layout_marginBottom="10dp"
+           android:layout_centerInParent="true"
+           android:layout_centerVertical="true" />
+
+       <com.google.android.gms.common.SignInButton
+           android:id="@+id/signin_button"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           ></com.google.android.gms.common.SignInButton>
+
+   </LinearLayout>
+
+</LinearLayout>

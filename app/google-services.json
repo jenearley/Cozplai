@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "78120884964",
+    "project_id": "cozplai-188223"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78120884964:android:a3075dc5ba66824f",
+        "android_client_info": {
+          "package_name": "edu.sjsu.jen.cozplai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78120884964-8i5937oeuc5ql3b2fmfeisp03akq4f6l.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "78120884964-svg2qg72pqpcnt1nt0hrp96593974irh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.sjsu.jen.cozplai",
+            "certificate_hash": "a706d576bde52c2385913c37a29fa259d22ce659"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOo8cJIp-aVPFJU64Rxv5KIbyN9xMwLgM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
