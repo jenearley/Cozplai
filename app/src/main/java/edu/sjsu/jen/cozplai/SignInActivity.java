@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,8 +16,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 
 
 public class SignInActivity extends AppCompatActivity implements
@@ -30,9 +28,7 @@ public class SignInActivity extends AppCompatActivity implements
     private LinearLayout profileSection;
     private LinearLayout loginSection;
     private SignInButton signInButton;
-    private Button signOutButton;
-    private Button continueButton;
-    private GoogleApiClient mGoogleApiClient;
+    public static GoogleApiClient mGoogleApiClient;
     private TextView name;
     private TextView email;
 
@@ -46,9 +42,6 @@ public class SignInActivity extends AppCompatActivity implements
 
         loginSection = (LinearLayout) findViewById(R.id.login_section);
         loginSection.setVisibility(View.VISIBLE);
-
-        signOutButton = (Button) findViewById(R.id.signout_button);
-        signOutButton.setOnClickListener(this);
 
         signInButton = (SignInButton) findViewById(R.id.signin_button);
         signInButton.setOnClickListener(this);
@@ -74,25 +67,32 @@ public class SignInActivity extends AppCompatActivity implements
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        if (mGoogleApiClient.isConnected())
+        {
+            mGoogleApiClient.disconnect();
+        }
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.signin_button:
                 signIn();
-                break;
-
-            case R.id.signout_button:
-                signOut();
                 break;
         }
     }
 
     private void handleResult(GoogleSignInResult result){
         if(result.isSuccess()){
+            Log.d(LOG_TAG, "handleResult: Success");
             GoogleSignInAccount account = result.getSignInAccount();
             name.setText(account.getDisplayName());
             email.setText(account.getEmail());
-            updateUI(true);
+            continueMain(null);
         } else {
+            Log.d(LOG_TAG, "handleResult: FAIL: " + result.getStatus());
             updateUI(false);
         }
     }
@@ -112,19 +112,10 @@ public class SignInActivity extends AppCompatActivity implements
         startActivityForResult(intent, RC_SIGN_IN);
     }
 
-    private void signOut(){
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        updateUI(false);
-                    }
-                });
-    }
-
     public void continueMain(View view){
         Intent intent = new Intent(this, CharacterListActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -140,5 +131,6 @@ public class SignInActivity extends AppCompatActivity implements
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         //TODO: HANDLE THIS
+        Log.e(LOG_TAG, "onConnectionFailed: ");
     }
 }

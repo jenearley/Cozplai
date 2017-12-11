@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CharacterListActivity">
+    <item
+        android:id="@+id/menu_signout"
+        android:title="Sign Out"
+        app:showAsAction="never"/>
+    <item
+        android:title="Conventions"
+        android:icon="@drawable/ic_convention"
+        android:id="@+id/menu_conventions"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="Camera"
+        android:icon="@drawable/ic_camera"
+        android:id="@+id/menu_camera"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="Photos"
+        android:icon="@drawable/ic_photos"
+        android:id="@+id/menu_photos"
+        app:showAsAction="always"/>
+
+</menu>

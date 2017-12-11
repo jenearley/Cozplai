@@ -23,6 +23,10 @@
             "package_name": "edu.sjsu.jen.cozplai",
             "certificate_hash": "a706d576bde52c2385913c37a29fa259d22ce659"
           }
+        },
+        {
+          "client_id": "78120884964-gfs5ninqeme02s5oh0bbjb5pj23amvbe.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [

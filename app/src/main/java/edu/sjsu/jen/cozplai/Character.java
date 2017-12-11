@@ -1,7 +1,5 @@
 package edu.sjsu.jen.cozplai;
 
-import android.widget.ImageView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +11,9 @@ public class Character {
     private String name;
     private String source;
     private int completion;
-    private List<CostumeElement> elements;
+    private List<Element> elements;
     private int photoId; //R.drawable file
+    private String photoUri;
 
     public Character(String name) {
         this.name = name;
@@ -28,23 +27,17 @@ public class Character {
     public String getName() { return name; }
     public String getSource() { return source; }
     public int getCompletion() { return completion; }
-    public List<CostumeElement> getElements() { return elements; }
+    public List<Element> getElements() { return elements; }
     public int getPhotoId() { return photoId; }
+    public String getPhotoUri() { return photoUri; }
+
 
     //setters
     public void setName(String name) { this.name = name; }
     public void setSource(String source) { this.source = source; }
     public void setCompletion(int completion) { this.completion = completion; }
-    public void setElements(List<CostumeElement> elements) { this.elements = elements; }
+    public void setElements(List<Element> elements) { this.elements = elements; }
     public void setPhotoId(int photoId) { this.photoId = photoId; }
-
-    //TODO: DELETE AFTER TEXT COMPLETION
-    public static List<Character> characters = new ArrayList<>();
-
-    static {
-        characters.add(new Character("Naruto Uzamaki"));
-        characters.add(new Character("Benjamin Holman"));
-        characters.add(new Character("meowmeowmeowmeow"));
-    }
+    public void setPhotoUri(String photoUri) { this.photoUri = photoUri; }
 
 }
